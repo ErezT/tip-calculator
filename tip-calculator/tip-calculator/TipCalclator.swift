@@ -14,16 +14,22 @@ class TipCalclator: UIViewController {
     
     @IBAction func userInputAction(sender: UITextField) {
         userInput = Double(userInputOutlet.text!)!
+        
     }
-    
-    @IBAction func peopleSegmentedAction(sender: UISegmentedControl) {
-        people = Double(peopleOutlet.titleForSegmentAtIndex(peopleOutlet.selectedSegmentIndex)!)!
-    }
-    
     
     @IBAction func percentSegmentedAction(sender: UISegmentedControl) {
         percent = Double(percentOutlet.titleForSegmentAtIndex(percentOutlet.selectedSegmentIndex)!)!
     }
+    
+    @IBAction func peopleSegmentedAction(sender: UISegmentedControl) {
+        people = Double(peopleOutlet.titleForSegmentAtIndex(peopleOutlet.selectedSegmentIndex)!)!
+        result = (userInput * (percent / 100)) / people
+        
+        resultOutlet.text = String(result)
+    }
+    
+    
+
     
     
     var userInput = 0.0
@@ -36,10 +42,6 @@ class TipCalclator: UIViewController {
     @IBOutlet weak var peopleOutlet: UISegmentedControl!
     @IBOutlet weak var percentOutlet: UISegmentedControl!
     @IBOutlet weak var userInputOutlet: UITextField!
-
-
-    result = (userInput * (percent / 100)) / people
-    
     
 
 }
